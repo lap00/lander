@@ -5,6 +5,8 @@ public class RefuelPad : MonoBehaviour {
 
 	public LanderController refuel;
 	private bool refuelLander = false;
+	private bool startRefuel = false;
+	//private GameObject ship = LanderController;
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
@@ -27,9 +29,9 @@ public class RefuelPad : MonoBehaviour {
 
 		if (refuelLander == true)
 		{
-			refuel.GetComponent<LanderController> ().fuelLevel = 100;
-			refuel.GetComponent<LanderController> ().monoPropellant = 100;
-			//refuelLander = false;
+			//refuel.GetComponent<LanderController> ().fuelLevel = 100;
+			//refuel.GetComponent<LanderController> ().monoPropellant = 100;
+			startRefuel = true;
 
 		}
 		if (refuelLander == false) 
@@ -40,5 +42,18 @@ public class RefuelPad : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other)
 	{
 		refuelLander = false;
+		startRefuel = false;
+	}
+
+	void Update ()
+	{
+		if(startRefuel == true && refuel.fuelLevel < refuel.maxFuel)
+		{
+			refuel.fuelLevel += 4 * Time.deltaTime;
+		}
+		if(startRefuel == true && refuel.monoPropellant < refuel.maxMono)
+		{
+			refuel.monoPropellant += 7 * Time.deltaTime;
+		}
 	}
 }

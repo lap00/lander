@@ -32,6 +32,11 @@ public class PauseMenu : MonoBehaviour {
 		isPaused = false;
 	}
 
+	public void Restart ()
+	{
+		//Application.LoadLevel ("LanderGame");
+	}
+
 	public void Quit ()
 	{
 		Application.Quit();

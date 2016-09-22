@@ -4,8 +4,9 @@ using System.Collections;
 public class LanderController : MonoBehaviour {
 
 
-	public float landerRotate = 1.0f;
+	public float landerRotate = 1.5f;
 	public float landerForce = 10.0f;
+	public float landerMaxForce = 14.0f;
 	Rigidbody2D landerRocket;
 
 	public float credit = 0;
@@ -13,10 +14,10 @@ public class LanderController : MonoBehaviour {
 	public float maxHull = 100;
 	public float maxFuel = 100;
 	public float fuelLevel = 100;
-	public float fuelEffiency = 3.0f;
+	private float fuelEffiency = 1.0f;
 	public float maxMono = 100;
 	public float monoPropellant = 100;
-	public float monoEffiency = 0.2f;
+	private float monoEffiency = 1.5f;
 	public GameObject flames;
 
 	// Use this for initialization
@@ -28,8 +29,9 @@ public class LanderController : MonoBehaviour {
 	void FixedUpdate () {
 
 		if (Input.GetButton ("Jump") && fuelLevel > 0) {
-			landerRocket.AddRelativeForce (Vector2.up * landerForce);
 
+			landerRocket.AddRelativeForce (Vector2.up * landerForce );
+		
 			fuelLevel -= fuelEffiency * Time.deltaTime;
 
 			flames.SetActive (true);

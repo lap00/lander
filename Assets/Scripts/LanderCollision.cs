@@ -2,18 +2,19 @@
 using System.Collections;
 
 public class LanderCollision : MonoBehaviour {
+
+	public LanderController landerController;
 	
-	void OnCollisionEnter2D(Collision2D other) 
+	void OnCollisionEnter2D(Collision2D collision) 
 	{
 
-		if (other.transform.IsChildOf(GameObject.Find("level").transform))
+		if (collision.relativeVelocity.magnitude > 3)
 		{
-			//print ("You are touching " + other.collider);
+			
+			print (collision.relativeVelocity.magnitude.ToString("0"));
+			landerController.hull -= collision.relativeVelocity.magnitude * 3;
 		}
-		//if (other.gameObject.GetComponent<LandingPad>() != null)
-		//{
-		//	print ("landed!");
-		//}
+
 	}
 
 }
