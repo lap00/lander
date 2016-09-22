@@ -11,7 +11,7 @@ public class LanderCollision : MonoBehaviour {
 		if (collision.relativeVelocity.magnitude > 3)
 		{
 			
-			print (collision.relativeVelocity.magnitude.ToString("0"));
+			print (collision.relativeVelocity.magnitude);
 			landerController.hull -= collision.relativeVelocity.magnitude * 3;
 		}
 

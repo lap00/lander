@@ -1,0 +1,20 @@
+# Unity3D generated 
+Temp/
+Library/
+
+# Visual Studio generated
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+# Windows generated
+.Trashes
+Thumbs.db
