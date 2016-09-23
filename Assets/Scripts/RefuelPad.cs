@@ -49,11 +49,11 @@ public class RefuelPad : MonoBehaviour {
 	{
 		if(startRefuel == true && refuel.fuelLevel < refuel.maxFuel)
 		{
-			refuel.fuelLevel += 4 * Time.deltaTime;
+			refuel.fuelLevel += 9 * Time.deltaTime;
 		}
 		if(startRefuel == true && refuel.monoPropellant < refuel.maxMono)
 		{
-			refuel.monoPropellant += 7 * Time.deltaTime;
+			refuel.monoPropellant += 12 * Time.deltaTime;
 		}
 	}
 }

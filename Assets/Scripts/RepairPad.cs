@@ -43,7 +43,7 @@ public class RepairPad : MonoBehaviour {
 	{
 		if(startRepair == true && repair.hull < repair.maxHull)
 		{
-			repair.hull += 7 * Time.deltaTime;
+			repair.hull += 15 * Time.deltaTime;
 
 		}
 	}

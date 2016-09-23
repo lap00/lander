@@ -27,6 +27,11 @@ public class PauseMenu : MonoBehaviour {
 		}
 	}
 
+	public void Menu ()
+	{
+		isPaused = !isPaused;
+
+	}
 	public void Resume ()
 	{
 		isPaused = false;

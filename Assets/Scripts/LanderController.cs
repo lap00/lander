@@ -6,7 +6,7 @@ public class LanderController : MonoBehaviour {
 
 	public float landerRotate = 1.5f;
 	public float landerForce = 10.0f;
-	public float landerMaxForce = 14.0f;
+	//public float landerMaxForce = 14.0f;
 	Rigidbody2D landerRocket;
 
 	public float credit = 0;

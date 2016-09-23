@@ -8,11 +8,11 @@ public class LanderCollision : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision) 
 	{
 
-		if (collision.relativeVelocity.magnitude > 3)
+		if (collision.relativeVelocity.magnitude > 0.6)
 		{
 			
 			print (collision.relativeVelocity.magnitude);
-			landerController.hull -= collision.relativeVelocity.magnitude * 3;
+			landerController.hull -= collision.relativeVelocity.magnitude + (collision.relativeVelocity.magnitude * 10);
 		}
 
 	}
