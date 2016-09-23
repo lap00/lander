@@ -4,9 +4,9 @@ using System.Collections;
 public class LanderController : MonoBehaviour {
 
 
-	public float landerRotate = 1.5f;
-	public float landerForce = 10.0f;
-	//public float landerMaxForce = 14.0f;
+	public float landerRotate = 3.5f;
+	public float landerForce = 5.0f;
+	public float monoForce = 1.5f;
 	Rigidbody2D landerRocket;
 
 	public float credit = 0;
@@ -28,6 +28,7 @@ public class LanderController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		//Regualer controlls, thrust and angular movement
 		if (Input.GetButton ("Jump") && fuelLevel > 0) {
 
 			landerRocket.AddRelativeForce (Vector2.up * landerForce );
@@ -45,14 +46,29 @@ public class LanderController : MonoBehaviour {
 
 			monoPropellant -= monoEffiency * Time.deltaTime;
 
-			//print (landerRocket.angularVelocity);
 		}
 
-		//if (landerRocket.angularVelocity > 0.1 || landerRocket.angularVelocity < -0.1)
-		//{
-		//	monoPropellant -= 0.1f * Time.deltaTime;
-		//}
-
+		//Rcs thruster controlls
+		if(Input.GetKey(KeyCode.A) && monoPropellant > 0) 
+		{
+			landerRocket.AddRelativeForce (Vector2.left * monoForce );
+			monoPropellant -= monoEffiency * Time.deltaTime;
+		}
+		if(Input.GetKey(KeyCode.D)) 
+		{
+			landerRocket.AddRelativeForce (Vector2.right * monoForce );
+			monoPropellant -= monoEffiency * Time.deltaTime;
+		}
+		if(Input.GetKey(KeyCode.W)) 
+		{
+			landerRocket.AddRelativeForce (Vector2.up * monoForce );
+			monoPropellant -= monoEffiency * Time.deltaTime;
+		}
+		if(Input.GetKey(KeyCode.S)) 
+		{
+			landerRocket.AddRelativeForce (Vector2.down * monoForce );
+			monoPropellant -= monoEffiency * Time.deltaTime;
+		}
 
 
 	}

@@ -15,11 +15,12 @@ public class GuiController : MonoBehaviour {
 	public Image fuelBar;
 	public Image monoBar;
 	public Image hullBar;
+	public GameObject warning;
 
 	// Use this for initialization
 	void Start () {
 
-
+		warning.SetActive (true);
 		//fuelRemaining.text = "test";
 
 	}
@@ -37,6 +38,12 @@ public class GuiController : MonoBehaviour {
 		monoBar.fillAmount = landerController.monoPropellant / 100;
 		hullBar.fillAmount = landerController.hull / 100;
 
+		//Show warning on low fuel, mono or hull
+		if (landerController.fuelLevel < 15 || landerController.monoPropellant < 15 || landerController.hull < 15) {
+			warning.SetActive(true);
+		} else {
+			warning.SetActive(false);
+		}
 
 		//Fuel guage color control
 		if (landerController.fuelLevel < 50 && landerController.fuelLevel > 20) {
