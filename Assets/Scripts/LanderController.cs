@@ -9,6 +9,7 @@ public class LanderController : MonoBehaviour {
 	public float monoForce = 1.5f;
 	Rigidbody2D landerRocket;
 
+	public float lives = 3;
 	public float credit = 0;
 	public float hull = 100;
 	public float maxHull = 100;
@@ -54,17 +55,17 @@ public class LanderController : MonoBehaviour {
 			landerRocket.AddRelativeForce (Vector2.left * monoForce );
 			monoPropellant -= monoEffiency * Time.deltaTime;
 		}
-		if(Input.GetKey(KeyCode.D)) 
+		if(Input.GetKey(KeyCode.D) && monoPropellant > 0) 
 		{
 			landerRocket.AddRelativeForce (Vector2.right * monoForce );
 			monoPropellant -= monoEffiency * Time.deltaTime;
 		}
-		if(Input.GetKey(KeyCode.W)) 
+		if(Input.GetKey(KeyCode.W) && monoPropellant > 0) 
 		{
 			landerRocket.AddRelativeForce (Vector2.up * monoForce );
 			monoPropellant -= monoEffiency * Time.deltaTime;
 		}
-		if(Input.GetKey(KeyCode.S)) 
+		if(Input.GetKey(KeyCode.S) && monoPropellant > 0) 
 		{
 			landerRocket.AddRelativeForce (Vector2.down * monoForce );
 			monoPropellant -= monoEffiency * Time.deltaTime;
